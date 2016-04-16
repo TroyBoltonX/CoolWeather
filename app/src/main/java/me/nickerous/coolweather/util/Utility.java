@@ -40,7 +40,7 @@ public class Utility {
 
             try {
                 JSONArray array = new JSONArray(response);
-                Province province = null;
+                Province province;
                 for (int i = 0; i < array.length(); ++i) {
 
                     JSONArray jsonArray = array.getJSONArray(i);
@@ -67,7 +67,7 @@ public class Utility {
 
             try {
                 JSONArray array = new JSONArray(response);
-                City city = null;
+                City city;
                 for (int i = 0; i < array.length(); ++i) {
 
                     JSONArray jsonArray = array.getJSONArray(i);
@@ -98,7 +98,7 @@ public class Utility {
 
             try {
                 JSONArray array = new JSONArray(response);
-                County county = null;
+                County county;
                 for (int i = 0; i < array.length(); ++i) {
 
                     JSONArray jsonArray = array.getJSONArray(i);
@@ -141,16 +141,16 @@ public class Utility {
 
             String publishTime = last_update.toString().substring(0, 10);
 
-            if (true) {
-                System.out.println("+++++++++++++++++++location: " + location);
-                System.out.println("+++++++++++++++++++weatherStatus: " + weatherStatus);
-                System.out.println("+++++++++++++++++++publishTime: " + publishTime);
-                System.out.println("+++++++++++++++++++cityCode: " + cityCode);
-                System.out.println("+++++++++++++++++++cityName: " + cityName);
-                System.out.println("+++++++++++++++++++temperature: " + temperature + "\u00B0");
-                System.out.println("+++++++++++++++++++weatherDesc: " + weatherDesc);
-                System.out.println("+++++++++++++++++++wind_direction: " + wind_direction);
-            }
+//            if (true) {
+//                System.out.println("+++++++++++++++++++location: " + location);
+//                System.out.println("+++++++++++++++++++weatherStatus: " + weatherStatus);
+//                System.out.println("+++++++++++++++++++publishTime: " + publishTime);
+//                System.out.println("+++++++++++++++++++cityCode: " + cityCode);
+//                System.out.println("+++++++++++++++++++cityName: " + cityName);
+//                System.out.println("+++++++++++++++++++temperature: " + temperature + "\u00B0");
+//                System.out.println("+++++++++++++++++++weatherDesc: " + weatherDesc);
+//                System.out.println("+++++++++++++++++++wind_direction: " + wind_direction);
+//            }
 
             saveWeatherInfo(context, cityCode, cityName, temperature, weatherDesc, wind_direction, publishTime);
         } catch (JSONException e) {

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import java.net.URLEncoder;
 
 import me.nickerous.coolweather.R;
+import me.nickerous.coolweather.service.AutoUpdateService;
 import me.nickerous.coolweather.util.HttpCallbackListener;
 import me.nickerous.coolweather.util.HttpUtil;
 import me.nickerous.coolweather.util.Utility;
@@ -158,5 +159,16 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
         currentDateText.setText(prefs.getString("current_date", ""));
         weatherInfoLayout.setVisibility(View.VISIBLE);
         cityNameText.setVisibility(View.VISIBLE);
+
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, ChooseAreaActivity.class);
+        intent.putExtra("from_weather_activity", true);
+        startActivity(intent);
+        finish();
     }
 }
